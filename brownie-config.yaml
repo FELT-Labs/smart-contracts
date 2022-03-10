@@ -8,3 +8,8 @@ compiler:
   solc:
     remappings:
       - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.5.0"
+
+dotenv: .env
+
+wallets:
+  owner_key: ${PRIVATE_KEY}
