@@ -1,0 +1,10 @@
+reports:
+  exclude_contracts:
+    - ERC20
+    - Ownable
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.5.0
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.5.0"
