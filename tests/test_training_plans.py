@@ -25,6 +25,7 @@ def test_get_round_model(accounts, project, token):
     project.submitModel("testCID3", {"from": owner})
     assert project.getRoundModel(1, owner) == "testCID3"
     assert project.getRoundModel(2, owner) == ""
+    assert True
 
 
 def test_abort_plan(accounts, project, token):
