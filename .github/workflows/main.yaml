@@ -1,0 +1,56 @@
+on: ["push"]
+
+name: main workflow
+
+env:
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Black
+        run: black --check --config pyproject.toml .
+
+      - name: Isort
+        run: isort --check .
+
+      - name: Flake8
+        run: flake8 --config pyproject.toml .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Ganache
+        run: npm install -g ganache-cli@6.9.1
+
+      - name: Install python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create mock .env file
+        run: touch .env
+
+      - name: Run tests
+        run: brownie test

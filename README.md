@@ -4,10 +4,12 @@ Smart contracts for federated learning written in solidity
 
 ## Setup
 
-1. `pip install -r requirements.txt` to install python dependencies
+1. `npm install -g ganache-cli` to install [ganache-cli](https://www.npmjs.com/package/ganache-cli)
+2. `pip install -r requirements.txt` to install python dependencies
+3. `cp .env-template .env` to create file with environment variables
+4. `pre-commit install` to install pre-commit hook for linting
 
 ## Commands
 
-- `pre-commit install` to install pre-commit hook for linting
 - `brownie compile` to compile smart contracts
 - `brownie test` to run tests
