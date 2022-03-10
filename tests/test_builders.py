@@ -1,8 +1,8 @@
 import brownie
 from nacl.public import PrivateKey
-from scripts.utils import get_account
 
 from scripts.crypto import export_public_key
+from scripts.utils import get_account
 
 
 def test_owner_is_builder(project):

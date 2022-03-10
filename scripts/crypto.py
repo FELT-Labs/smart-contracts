@@ -1,6 +1,7 @@
-from nacl.public import PrivateKey, Box, PublicKey
-from base64 import a85encode, a85decode
+from base64 import a85decode, a85encode
+
 from ecies.utils import aes_decrypt, aes_encrypt
+from nacl.public import Box, PrivateKey, PublicKey
 
 
 def _hex_to_bytes(hex: str) -> bytes:

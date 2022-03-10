@@ -1,8 +1,8 @@
 import brownie
 from nacl.public import PrivateKey
-from scripts.utils import get_account
 
 from scripts.crypto import encrypt_nacl, export_public_key
+from scripts.utils import get_account
 
 
 def test_get_round_model(accounts, project, token):
@@ -38,9 +38,9 @@ def test_abort_plan(accounts, project, token):
     with brownie.reverts("Only creator can abort the plan"):
         project.abortPlan({"from": accounts[0]})
 
-    assert project.isPlanRunning() == True
+    assert project.isPlanRunning() is True
     project.abortPlan({"from": owner})
-    assert project.isPlanRunning() == False
+    assert project.isPlanRunning() is False
 
 
 def test_finish_plan(accounts, project, token):
@@ -64,7 +64,7 @@ def test_finish_plan(accounts, project, token):
     # Assert
     assert n_plans == 1
     assert plan["finalModelCID"] == "testCID4"
-    assert is_plan_running == False
+    assert is_plan_running is False
 
 
 def test_change_owner_status(project):
@@ -76,7 +76,7 @@ def test_change_owner_status(project):
     node = project.nodesArray(0).dict()
 
     # Assert
-    assert node["activated"] == True
+    assert node["activated"] is True
 
 
 def test_change_node_status(accounts, project):
@@ -94,8 +94,8 @@ def test_change_node_status(accounts, project):
 
     # Act + Assert
     node = project.nodesArray(1).dict()
-    assert node["activated"] == True
+    assert node["activated"] is True
 
     project.changeNodeStatus(False, {"from": node_address})
     node = project.nodesArray(1).dict()
-    assert node["activated"] == False
+    assert node["activated"] is False

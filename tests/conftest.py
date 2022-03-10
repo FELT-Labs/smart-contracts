@@ -1,7 +1,8 @@
 import pytest
+from web3 import Web3
+
 from scripts.crypto import encrypt_nacl, export_public_key
 from scripts.utils import get_account
-from web3 import Web3
 
 
 @pytest.fixture(autouse=True)
@@ -40,9 +41,7 @@ def project(ProjectContract, token):
     secret = b"Initial secret must be 32 bytes."
     ciphertext = encrypt_nacl(public_key, secret)
 
-    project = ProjectContract.deploy(
-        token, public_key, list(ciphertext), {"from": get_account()}
-    )
+    project = ProjectContract.deploy(token, public_key, list(ciphertext), {"from": get_account()})
 
     yield project
 

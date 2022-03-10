@@ -1,5 +1,4 @@
 from nacl.public import PrivateKey
-from scripts.utils import get_account
 
 from scripts.crypto import (
     decrypt_bytes,
@@ -8,6 +7,7 @@ from scripts.crypto import (
     encrypt_nacl,
     export_public_key,
 )
+from scripts.utils import get_account
 
 
 def test_project_creation(accounts, project, token):

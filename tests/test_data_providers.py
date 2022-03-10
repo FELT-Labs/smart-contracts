@@ -1,8 +1,8 @@
 import brownie
 from nacl.public import PrivateKey
-from scripts.utils import get_account
 
 from scripts.crypto import encrypt_nacl, export_public_key
+from scripts.utils import get_account
 
 
 def test_node_join_request(accounts, project):
