@@ -1,6 +1,6 @@
 on: ["push"]
 
-name: main workflow
+name: Main workflow
 
 env:
   PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
@@ -27,7 +27,7 @@ jobs:
         run: isort --check .
 
       - name: Flake8
-        run: flake8 --config pyproject.toml .
+        run: flake8
 
   test:
     runs-on: ubuntu-latest

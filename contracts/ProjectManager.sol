@@ -52,4 +52,5 @@ contract ProjectManager is Ownable {
     }
 
     // TODO: Add contract creation function
+    // TODO: delete this line (actions test)
 }
