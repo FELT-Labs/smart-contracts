@@ -26,4 +26,4 @@ jobs:
         run: touch .env
       
       - name: Deploy to testnet
-        run: brownie run deploy_live --network plygon-test
+        run: brownie run deploy_live --network polygon-test
