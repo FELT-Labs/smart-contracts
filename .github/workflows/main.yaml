@@ -1,6 +1,6 @@
 on: ["push"]
 
-name: main workflow
+name: Main workflow
 
 env:
   PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

@@ -1,0 +1,29 @@
+on: ["push"]
+
+name: Deploy to testnet
+
+env:
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  WEB3_INFURA_PROJECT_ID: ${{ secrets.WEB3_INFURA_PROJECT_ID }}
+  POLYGONSCAN_TOKEN: ${{ secrets.POLYGONSCAN_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create mock .env file
+        run: touch .env
+      
+      - name: Deploy to testnet
+        run: brownie run deploy_live --network plygon-test
