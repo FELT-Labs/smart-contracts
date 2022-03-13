@@ -13,3 +13,4 @@ Smart contracts for federated learning written in solidity
 
 - `brownie compile` to compile smart contracts
 - `brownie test` to run tests
+- `brownie run deploy_live --network {network-name}` to deploy on live network
