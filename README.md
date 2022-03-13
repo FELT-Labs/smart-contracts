@@ -17,7 +17,7 @@ Smart contracts for federated learning written in solidity
 
 ## Deploy
 
-Active deployments on testnet are in [`build/deployments`](build/deployments/map.json) folder.
+Active deployments are listed in [`build/deployments`](build/deployments/map.json) folder.
 Smart contracts are deployed automatically to Mumbai (polygon testnet) on push to main branch.
 To setup remote node set in `.env`: `WEB3_INFURA_PROJECT_ID` from your infura account and `POLYGONSCAN_TOKEN` to api key from [polygonscan](https://polygonscan.com/).
 To list available networks in brownie run `brownie networks list`.
