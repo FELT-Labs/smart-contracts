@@ -1,9 +1,11 @@
 {
   "80001": {
     "FELToken": [
+      "0xc36629161f0D27015948BE96DcC77765D516BB2B",
       "0xfEDfba343cA47A78510b537b6Dc341EBA9163FD3"
     ],
     "ProjectManager": [
+      "0x539C777a47A25D0b29521DeE5d3931b2F7e6283b",
       "0xEFcAC95EA96d5b1D91C85fD06551fb6Cb13f2E0F"
     ]
   }
