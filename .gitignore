@@ -10,10 +10,6 @@ __pycache__/
 .Python
 build/*
 !build/deployments/
-# Hacky include of file: build/contracts/ProjectContract.json
-!build/contracts/
-build/contracts/*
-!build/contracts/ProjectContract.json
 develop-eggs/
 dist/
 downloads/
