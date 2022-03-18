@@ -1,4 +1,4 @@
-on: 
+on:
   workflow_dispatch:
   push:
     branches:
@@ -30,9 +30,12 @@ jobs:
 
       - name: Create mock .env file
         run: touch .env
-      
+
       - name: Deploy to testnet
         run: brownie run deploy_live --network polygon-test
+
+      - name: Move ProjectContract abi
+        run: mv build/contracts/ProjectContract.json build/deployments
 
       - name: Commit deployment
         uses: EndBug/add-and-commit@v9
