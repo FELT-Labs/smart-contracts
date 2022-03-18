@@ -1,7 +1,7 @@
 from brownie import FELToken, ProjectManager, accounts, config, network
 
 # Total supply times decimals
-INITIAL_SUPPLY = 100000000000 * (10 ** 18)
+INITIAL_SUPPLY = 100000000000 * (10**18)
 
 
 def main():
