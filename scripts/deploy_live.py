@@ -1,6 +1,5 @@
 from brownie import FELToken, ProjectManager, accounts, config, network
 
-# test
 # Total supply times decimals
 INITIAL_SUPPLY = 100000000000 * (10**18)
 
