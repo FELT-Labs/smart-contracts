@@ -25,3 +25,13 @@ To list available networks in brownie run `brownie networks list`.
 - `brownie run deploy_dev` to deploy and setup test contracts
 - `brownie run deploy_live --network polygon-test` to deploy on testnet
 - `brownie run deploy_live --network polygon-main` to deploy on polygon main livenet
+
+During deployment, project contract ABI (`ProjectContract.json`) is copied to `build/deployments/{chain_id}` folder
+(`chain_id` stands for chain id or `dev` in case of local deployment using ganache). Project file from this folder should be used for obtaining project contract ABI.
+
+## Development
+
+You can use the command `brownie run deploy_dev` for local development.
+This command will run ganache and http server at [`http://localhost:8100`](http://localhost:8100), providing the `build/deployments` directory.
+Other applications can download contracts ABI and get deployment addresses from this server.
+The code for downloading ABI should work the same for testet as local development; you only need to change the URL based on chain id (github or localhost url).
