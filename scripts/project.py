@@ -36,6 +36,8 @@ def setup_test_project(project, owner):
             continue
 
         node = accounts.add(config["wallets"][key])
+        accounts[0].transfer(node, "3 ether")
+
         public_key = export_public_key(node.private_key[2:])
         project.requestJoinNode(public_key, {"from": node})
 

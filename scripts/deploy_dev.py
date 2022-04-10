@@ -9,10 +9,8 @@ INITIAL_SUPPLY = 100000000000 * (10**18)
 
 def main():
     owner = accounts.add(config["wallets"]["owner_key"])
-    print(f"On network {network.show_active()}")
-
-    # TODO: Provide intial supply to other accounts (node1, node2)
     accounts[0].transfer(owner, "3 ether")
+    print(f"On network {network.show_active()}")
 
     feltoken = FELToken.deploy(INITIAL_SUPPLY, {"from": owner})
     ProjectManager.deploy(feltoken, {"from": owner})
