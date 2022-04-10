@@ -1,3 +1,4 @@
+import hashlib
 from base64 import a85decode, a85encode
 
 from ecies.utils import aes_decrypt, aes_encrypt
@@ -63,3 +64,10 @@ def encrypt_bytes(bytes: bytes, secret: bytes) -> bytes:
 def decrypt_bytes(ciphertext: bytes, secret: bytes) -> bytes:
     """Decrypt bytes (model) stored in contract/IPFS."""
     return aes_decrypt(secret, ciphertext)
+
+
+def get_current_secret(secret: bytes, entry_key_turn: int, key_turn: int) -> bytes:
+    """Calculate shared secret at current state."""
+    for _ in range(entry_key_turn, key_turn):
+        secret = hashlib.sha256(secret).digest()
+    return secret
