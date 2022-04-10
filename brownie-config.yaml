@@ -13,5 +13,7 @@ dotenv: .env
 
 wallets:
   owner_key: ${PRIVATE_KEY}
+  node1_key: ${NODE1_PRIVATE_KEY}
+  node2_key: ${NODE2_PRIVATE_KEY}
 
 dev_deployment_artifacts: true

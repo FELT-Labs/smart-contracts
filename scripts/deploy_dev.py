@@ -1,5 +1,6 @@
 from brownie import FELToken, ProjectManager, accounts, config, network
 
+from scripts.project import deploy_project, setup_test_project
 from scripts.utils import copy_project_contract, server_build_directory
 
 # Total supply times decimals
@@ -15,6 +16,13 @@ def main():
 
     feltoken = FELToken.deploy(INITIAL_SUPPLY, {"from": owner})
     ProjectManager.deploy(feltoken, {"from": owner})
+
+    # Setup test project
+    project = deploy_project(owner)
+    setup_test_project(project, owner)
+    # Print instructions for testing
+    print("Connect test data provider as (change account and data as needed):")
+    print(f"felt-node-worker --chain 1337 --contract {project} --account node1 --data test")
 
     # Copy project contract for serving to web app / python client
     copy_project_contract(network.chain.id)
