@@ -6,7 +6,7 @@ from scripts.crypto import decrypt_nacl, encrypt_nacl, export_public_key, get_cu
 
 def deploy_project(owner):
     """Deploy project contract."""
-    token = FELToken[-1]
+    token = FELToken[0]
 
     # Using dummy test secret
     secret = b"Initial secret must be 32 bytes."
@@ -16,7 +16,7 @@ def deploy_project(owner):
     ciphertext = encrypt_nacl(public_key, secret)
     project = ProjectContract.deploy(token, public_key, list(ciphertext), {"from": owner})
 
-    manager = ProjectManager[-1]
+    manager = ProjectManager[0]
     manager.activateProject(
         project.address, "Test Project", "This is great project...", 0, {"from": owner}
     )
